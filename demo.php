@@ -5,8 +5,8 @@ class Cambio
 {
 }
 
-class Estado{ 
-  
+class Estado
+{
 }
 
 class Carro
@@ -38,9 +38,10 @@ class Carro
   private int $cambioActual = 0;
 
   // Metodos
-  public function Encender() : string {
-    If($this->encendido){
-      return "El carro " 
+  public function Encender(): string
+  {
+    if ($this->encendido) {
+      return "El carro ";
     }
   }
   public function Avanzar(): string
@@ -154,7 +155,7 @@ $corolla = new Carro("Toyota", "Corolla", "Rojo", 2015, "AZC452", 0, 50, "Gasoli
   </h1>
   <?= $corolla->GetInfoCarro(); ?>
   <h2>Acción que realiza el carro</h2> <?= $corolla->Avanzar(); ?>
-  <h3>Estado del carro</h3> <?=$corolla?>
+  <h3>Estado del carro</h3> <?= $corolla ?>
 </main>
 <style>
   :root {
