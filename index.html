@@ -1,13 +1,56 @@
-<title>Porfolio CNieves</title>
-<h1>Porfolio de CNieves</h1>
-<p>Hola soy Cesar, estoy en el 8vo semestre de <strong>Ingeniera de sistemas</strong>, 
-    con 2 años de experiencia en programacion en JS</p>
-<h2>Experiencia</h2>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"> <!--Codificacion-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<ul>
-    <li>Chinchin - 2024</li>
-    <li>Tatiana Torres Medicare - 2023</li>
-    <li>Tatiana Torres Medicare - 2021 - 2023</li>
-</ul> 
+    <title>Porfolio CNieves</title> <!--Titulo llamativo-->
 
-<img src="/images/hasbulla.jpg" alt="">
+    <meta name="description" content="Portafolio de Cesar Nieves para comerzar su camino en la programación..."> <!--Descripcion para la pagina-->
+    
+    <!--Open Graph para que cuando se comparta en diferentes redes se vea correctamente-->
+    <meta property ="og:title" content="Porfolio CNieves Ing sistemas...">
+    <meta property ="og:description" content="Portafolio de Cesar Nieves para comerzar su camino en la programación...">
+    <meta property ="og:img" content="/images/hasbulla.jpg">
+    <meta property ="og:img:alt" content="Fotografia de Cesar Nieves en la vida reaa... ">
+
+    <link rel="alternate" href="https:/midu.dev/en" hreflang="es-GB"> <!--Para referenciar a una pagina alternativa qye sea de otro idioma-->
+    <link rel="canonical" href="https:/midu.dev"> <!--Para referenciar caul es la original-->
+
+    <meta name = "robots" content ="index, follow">
+    <meta name = "theme-color" content="#09f">
+
+    <link rel="icon" type = "image/jpg" href="/images/hasbulla.jpg"> <!--Para cambiar el icon del dominio-->
+
+    <style>
+      body{
+        background: #59d8d2;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <!-- AQUI TU COMENTARIO-->
+    <h1>Porfolio de CNieves</h1>
+    <p>Hola soy Cesar, estoy en el 8vo semestre de <strong>Ingeniera de sistemas</strong>, 
+      con 2 años de experiencia en programacion en JS</p>
+    <h2>Experiencia</h2>
+
+    <!-- Ul para reliazar una lista, las clases se puden retir -->
+    <ul> 
+      <li class="list'item">Chinchin - 2024</li>
+      <li class="list'item">Tatiana Torres Medicare - 2023</li>
+      <li class="list'item">Tatiana Torres Medicare - 2021 - 2023</li>
+    </ul> 
+
+    <img 
+      id="photo-image-Cesar"
+      hidden 
+      width="200"
+      height="250"
+      title="Foto de Cesar" 
+      src="/images/hasbulla.jpg" 
+      alt="Una foto de Cesar Nieves en la vida real..."> 
+  </body>
+</html>
