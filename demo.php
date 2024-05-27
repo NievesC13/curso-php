@@ -39,12 +39,34 @@ class Carro
   private int $cambioActual = 0;
 
   // Metodos
+
+  public function SetBool($bool): string
+  {
+    if ($bool) {
+      return "Si...";
+    } else {
+      return "No...";
+    }
+  }
+
   public function Encender(): string
   {
     if ($this->encendido) {
-      return "El carro ";
+      return "El carro ya esta encendido...";
     }
+    $this->encendido = true;
+    return "El carro se ha encendido...";
   }
+
+  public function Apagar(): string
+  {
+    if (!$this->encendido) {
+      return "El carro ya esta apagado...";
+    }
+    $this->encendido = false;
+    return "El carro se ha apagado...";
+  }
+
   public function Avanzar(): string
   {
     if (!$this->encendido || $this->retrocediendo) {
@@ -93,6 +115,7 @@ class Carro
     $placa,
     $kilometraje,
     $tanqueGas,
+    $gasNvl,
     $motorTipo,
     $consumo,
     $transmision,
@@ -111,6 +134,7 @@ class Carro
     $this->placa = $placa;
     $this->kilometraje = $kilometraje;
     $this->tanqueGas = $tanqueGas;
+    $this->gasNvl = $gasNvl;
     $this->motorTipo = $motorTipo;
     $this->consumo = $consumo;
     $this->transmision = $transmision;
@@ -122,7 +146,14 @@ class Carro
     $this->precio = $precio;
   }
 
-
+  public function GetEstado(): string
+  {
+    return $info =
+      "<br />El carro esta encendido: " . $this->SetBool($this->encendido) .
+      "<br />El carro esta avanzando: " . $this->SetBool($this->avanzando) .
+      "<br />El carro esta retrocediendo: " . $this->SetBool($this->avanzando) .
+      "<br />El carro esta la marcha: " . $this->cambioActual;
+  }
   public function GetInfoCarro()
   {
     return $info = "
@@ -132,8 +163,8 @@ class Carro
             <br />El año es: $this->año, 
             <br />La placa es: $this->placa,
             <br />El kilometraje es: $this->kilometraje Km,
-            <br />La capacidad de gasolina es: $this->tanqueGas Litros,
-            <br />El nivel de la gasolina es: $this->gasNvl Litros, 
+            <br />La capacidad de gasolina es: $this->tanqueGas Km,
+            <br />El nivel de la gasolina es: $this->gasNvl, 
             <br />El tipo de motor es: $this->motorTipo,
             <br />Su consumo es de: $this->consumo litros por Km, 
             <br />Tipo de transmision es: $this->transmision, 
@@ -146,19 +177,35 @@ class Carro
   }
 }
 
-$corolla = new Carro("Toyota", "Corolla", "Rojo", 2015, "AZC452", 0, 50, "Gasolina", 10, "Manual", 5, 4, "Trasera", 5, 200, 12000);
+$corolla = new Carro(
+  "Toyota",
+  "Corolla",
+  "Rojo",
+  2015,
+  "AZC452",
+  0,
+  5,
+  15,
+  "Gasolina",
+  10,
+  "Manual",
+  5,
+  4,
+  "Trasera",
+  5,
+  200,
+  12000
+);
 
 ?>
 
 <main>
-  <h1>
-    <title>Caracteristicas del carro </title>
-    Caracteristicas del carro
-  </h1>
-  <?= $corolla->GetInfoCarro(); ?>
-  <h2>Acción que realiza el carro</h2> <?= $corolla->Avanzar(); ?>
-  <h3>Estado del carro</h3> <?= $corolla ?>
+  <title>OOP Carro </title>
+  <h1>Caracteristicas del carro</h1> <?= $corolla->GetInfoCarro(); ?>
+  <h1>Estados del carro</h1> <?= $corolla->GetEstado() ?>
+  <h1>Acción que realiza el carro</h1> <?= $corolla->Avanzar() . $corolla->Girar("Derecha"); ?>
 </main>
+
 <style>
   :root {
     color-scheme: light dark;
