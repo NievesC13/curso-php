@@ -1,6 +1,14 @@
 <?php
 
 //Clase de Carro
+class Cambio
+{
+}
+
+class Estado{ 
+  
+}
+
 class Carro
 {
   //Propiedades
@@ -23,12 +31,18 @@ class Carro
   private float $precio;
   private float $tanqueGas;
 
-  //Estados
+  //Estados 
   private bool $encendido = false;
   private bool $avanzando = false;
   private bool $retrocediendo = false;
+  private int $cambioActual = 0;
 
   // Metodos
+  public function Encender() : string {
+    If($this->encendido){
+      return "El carro " 
+    }
+  }
   public function Avanzar(): string
   {
     if (!$this->encendido || $this->retrocediendo) {
@@ -110,33 +124,38 @@ class Carro
   public function GetInfoCarro()
   {
     return $info = "
-            La marca es:  $this->marca,
-            El modelo es: $this->modelo,
-            El color es:  $this->color,
-            El año es: $this->año, 
-            La placa es: $this->placa,
-            El kilometraje es: $this->kilometraje Km,
-            El nivel de la gasolina es: $this->gasNvl, 
-            El tipo de motor es: $this->motorTipo,
-            Su consumo es de: $this->consumo litros por Km, 
-            Tipo de transmision es: $this->transmision, 
-            Total de puertas: $this->nroPuertas, 
-            Total de ruedas: $this->nroRuedas, 
-            Tipo de traccion: $this->traccionTipo, 
-            Capacidad Max de Pasajeros: $this->maxPasajeros,
-            Capacidad Max de Carga: $this->maxCarga,
-            Precio de concesionario: $this->precio";
+            <br />La marca es:  $this->marca,
+            <br />El modelo es: $this->modelo,
+            <br />El color es:  $this->color,
+            <br />El año es: $this->año, 
+            <br />La placa es: $this->placa,
+            <br />El kilometraje es: $this->kilometraje Km,
+            <br />El nivel de la gasolina es: $this->gasNvl, 
+            <br />El tipo de motor es: $this->motorTipo,
+            <br />Su consumo es de: $this->consumo litros por Km, 
+            <br />Tipo de transmision es: $this->transmision, 
+            <br />Total de puertas: $this->nroPuertas, 
+            <br />Total de ruedas: $this->nroRuedas, 
+            <br />Tipo de traccion: $this->traccionTipo, 
+            <br />Capacidad Max de Pasajeros: $this->maxPasajeros,
+            <br />Capacidad Max de Carga: $this->maxCarga,
+            <br />Precio de concesionario: $this->precio $";
   }
 }
 
 $corolla = new Carro("Toyota", "Corolla", "Rojo", 2015, "AZC452", 0, 50, "Gasolina", 10, "Manual", 5, 4, "Trasera", 5, 200, 12000);
 
-echo $corolla->GetInfoCarro();
-echo $corolla->Frenar();
-echo $corolla->MostrarKm();
-
 ?>
 
+<main>
+  <h1>
+    <title>Caracteristicas del carro </title>
+    Caracteristicas del carro
+  </h1>
+  <?= $corolla->GetInfoCarro(); ?>
+  <h2>Acción que realiza el carro</h2> <?= $corolla->Avanzar(); ?>
+  <h3>Estado del carro</h3> <?=$corolla?>
+</main>
 <style>
   :root {
     color-scheme: light dark;
