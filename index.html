@@ -32,25 +32,103 @@
 
   <body>
     <!-- AQUI TU COMENTARIO-->
-    <h1>Porfolio de CNieves</h1>
-    <p>Hola soy Cesar, estoy en el 8vo semestre de <strong>Ingeniera de sistemas</strong>, 
-      con 2 años de experiencia en programacion en JS</p>
-    <h2>Experiencia</h2>
+    <header>
+      <h1>Porfolio de CNieves</h1>
 
-    <!-- Ul para reliazar una lista, las clases se puden retir -->
-    <ul> 
-      <li class="list'item">Chinchin - 2024</li>
-      <li class="list'item">Tatiana Torres Medicare - 2023</li>
-      <li class="list'item">Tatiana Torres Medicare - 2021 - 2023</li>
-    </ul> 
+      <nav> <!--Enlaces internos-->
+        <a href="#experiencia">Experiencia</a>
+        <a href="#proyectos">Proyectos</a>
+        <a 
+          href="https://www.linkedin.com/in/cesar-nieves-370587261/"
+          target="_blank"
+          rel="noreferrer">Linkedin</a>
+      </nav>
+    </header>
 
-    <img 
-      id="photo-image-Cesar"
-      hidden 
-      width="200"
-      height="250"
-      title="Foto de Cesar" 
-      src="/images/hasbulla.jpg" 
-      alt="Una foto de Cesar Nieves en la vida real..."> 
+    <main>
+    
+      <p>Hola soy Cesar, estoy en el 8vo semestre de <strong>Ingeniera de sistemas</strong>, 
+        con 2 años de experiencia en programacion en JS</p>
+
+      <h2 id = "experiencia">Experiencia</h2>
+
+      <!-- Ul para reliazar una lista, las clases se puden retir -->
+      <ul> 
+        <li class="list'item">Chinchin - 2024</li>
+        <li class="list'item">Tatiana Torres Medicare - 2023</li>
+        <li class="list'item">Tatiana Torres Medicare - 2021 - 2023</li>
+      </ul> 
+
+      <img 
+        id="photo-image-Cesar" 
+        hidden
+        width="200"
+        height="250"
+        title="Foto de Cesar" 
+        src="/images/hasbulla.jpg" 
+        alt="Una foto de Cesar Nieves en la vida real..."> 
+
+      <h2 id = "proyectos">Proyectos realizados</h2>
+      
+      <aside> <!--Contenido que da mas contexto-->
+        <header>
+          <h3>Tecnologias <span style="color: red;">favoritas</span></h3>
+        </header>
+        <ol> <!--Lista ordenada por numeros-->
+          <li>Python</li>
+          <li>JavaScript</li>
+          <li>C++</li>
+          <li>Node.Js</li>
+          <li>PHP</li>
+        </ol>
+      </aside>
+
+      <button>
+        Haz clic aqui!!
+      </button>
+      
+      <section>
+        <article>
+          <header>
+            <h4>Sitio Corporativo</h4>
+          </header>
+          <p>Desarrollo de un sitio Web Coorporativo para presentar las habilidades y proyectos de Cesar Nieves...</p>
+          <footer>
+            <small>Tecnologias utilizadas: HTML, CSS, JavaScript</small>
+          </footer>
+        </article>
+
+        <article>
+          <header>
+            <h4>Juego Ajedrez</h4>
+          </header>
+          <p>Desarrollo de un minijuego de Ajedrez para poner en practica las habilidades con C++ ...</p>
+          <footer>
+            <small>Tecnologias utilizadas: C++</small>
+          </footer>
+        </article>
+
+        <article>
+          <header>
+            <h4>Carro OOP</h4>
+          </header>
+          <p>Desarrollo de un sitio Web Coorporativo para presentar las habilidades y proyectos de Cesar Nieves...</p>
+          <footer>
+            <small>Tecnologias utilizadas: HTML, CSS, PHP</small>
+          </footer>
+        </article>
+      </section>
+    </main>
+
+
+    <footer>
+      Copyright @ 2024 El mejor Porfolio del mundo... 
+      
+      <a href="mailto:nievescesar87@gmail.com">Enviame un correo</a>
+      <a href="https://api.whatsapp.com/send/?phone=%2B584242812813&text&type=phone_number&app_absent=0" 
+      target="_blank"
+      rel="noreferrer">Enviame un whatsapp</a>
+    </footer>
+
   </body>
 </html>
