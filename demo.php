@@ -19,6 +19,7 @@ class Carro
   private int $año;
   private string $placa;
   private float $kilometraje;
+  private float $tanqueGas;
   private float $gasNvl;
   private string $motorTipo; // Gasolina, diesel 
   private float $consumo; // Km x L
@@ -29,9 +30,9 @@ class Carro
   private int $maxPasajeros;
   private int $maxCarga;
   private float $precio;
-  private float $tanqueGas;
 
   //Estados 
+  private $estados = [];
   private bool $encendido = false;
   private bool $avanzando = false;
   private bool $retrocediendo = false;
@@ -91,7 +92,7 @@ class Carro
     $año,
     $placa,
     $kilometraje,
-    $gasNvl,
+    $tanqueGas,
     $motorTipo,
     $consumo,
     $transmision,
@@ -109,7 +110,7 @@ class Carro
     $this->año = $año;
     $this->placa = $placa;
     $this->kilometraje = $kilometraje;
-    $this->gasNvl = $gasNvl;
+    $this->tanqueGas = $tanqueGas;
     $this->motorTipo = $motorTipo;
     $this->consumo = $consumo;
     $this->transmision = $transmision;
@@ -131,7 +132,8 @@ class Carro
             <br />El año es: $this->año, 
             <br />La placa es: $this->placa,
             <br />El kilometraje es: $this->kilometraje Km,
-            <br />El nivel de la gasolina es: $this->gasNvl, 
+            <br />La capacidad de gasolina es: $this->tanqueGas Litros,
+            <br />El nivel de la gasolina es: $this->gasNvl Litros, 
             <br />El tipo de motor es: $this->motorTipo,
             <br />Su consumo es de: $this->consumo litros por Km, 
             <br />Tipo de transmision es: $this->transmision, 
