@@ -3,13 +3,43 @@
 //Clase de Carro
 class Cambio
 {
+  private int $cambioActual = 5;
+
+  public function SubirCambio(): string
+  {
+    if ($this->cambioActual == 6) {
+      return "<br />El carro no puede subir mas cambios...";
+    }
+    $this->cambioActual += 1;
+    return "<br />Se ha subido un cambio...";
+  }
+
+  public function BajarCambio()
+  {
+    if ($this->cambioActual == -1) {
+      return "<br />El carro no puede bajar mas cambios...";
+    }
+    $this->cambioActual -= 1;
+    return "<br />Se ha subido un cambio...";
+  }
+
+  public function GetCambioActual(): string
+  {
+    $outputCambio = match (true) {
+      $this->cambioActual == 0 => "Neutro...",
+      $this->cambioActual == 1 => "Primera...",
+      $this->cambioActual == 2 => "Segunda...",
+      $this->cambioActual == 3 => "Tercera...",
+      $this->cambioActual == 4 => "Cuarta...",
+      $this->cambioActual == 5 => "Quinta...",
+      $this->cambioActual == 6 => "Sexta...",
+      default => "Retroceso...", // -1 == Retrocediendo
+    };
+    return $outputCambio;
+  }
 }
 
-class Estado
-{
-}
-
-class Carro
+class Carro extends Cambio
 {
   //Propiedades
   public string $marca;
@@ -32,11 +62,9 @@ class Carro
   private float $precio;
 
   //Estados 
-  private $estados = [];
   private bool $encendido = false;
   private bool $avanzando = false;
   private bool $retrocediendo = false;
-  private int $cambioActual = 0;
 
   // Metodos
 
@@ -152,7 +180,7 @@ class Carro
       "<br />El carro esta encendido: " . $this->SetBool($this->encendido) .
       "<br />El carro esta avanzando: " . $this->SetBool($this->avanzando) .
       "<br />El carro esta retrocediendo: " . $this->SetBool($this->avanzando) .
-      "<br />El carro esta la marcha: " . $this->cambioActual;
+      "<br />El carro esta la marcha: " . $this->GetCambioActual();
   }
   public function GetInfoCarro()
   {
@@ -199,11 +227,26 @@ $corolla = new Carro(
 
 ?>
 
+
+<!--VISUALIZAR-->
+
 <main>
   <title>OOP Carro </title>
-  <h1>Caracteristicas del carro</h1> <?= $corolla->GetInfoCarro(); ?>
-  <h1>Estados del carro</h1> <?= $corolla->GetEstado() ?>
-  <h1>Acción que realiza el carro</h1> <?= $corolla->Avanzar() . $corolla->Girar("Derecha"); ?>
+
+  <h1>Caracteristicas del carro</h1>
+  <?= $corolla->GetInfoCarro(); ?>
+
+  <h1>Acción que realiza el carro</h1>
+  <?= $corolla->Avanzar() . $corolla->Girar("Derecha") . $corolla->SubirCambio(); ?>
+
+  <h1>Estados del carro</h1>
+  <?= $corolla->GetEstado(); ?>
+
+  <footer>
+    <h2>Recursos usados para realizar el proyecto...</h2>
+    <br /><a href="https://www.youtube.com/watch?v=BcGAPkjt_IE" target="_blank">Curso de PHP</a>
+    <br /><a href="https://www.youtube.com/watch?v=UyNZxmrouso&list=PLH_tVOsiVGzm0PGn_HEZbgm_ugEgV7LKV&pp=iAQB" target="_blank" rel="nonferrer">Curso de POO en PHP</a>
+  </footer>
 </main>
 
 <style>
