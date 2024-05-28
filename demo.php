@@ -5,22 +5,35 @@ class Cambio
 {
   private int $cambioActual = 5;
 
-  public function SubirCambio(): string
+  public function SubirCambio(string $manual): string
   {
-    if ($this->cambioActual == 6) {
-      return "<br />El carro no puede subir mas cambios...";
-    }
-    $this->cambioActual += 1;
-    return "<br />Se ha subido un cambio...";
+    $manual = strtoupper($manual);
+    if ($manual === "MANUAL") {
+
+      if ($this->cambioActual == 6) {
+
+        return "<br />El carro no puede subir mas cambios...";
+      }
+      $this->cambioActual += 1;
+      return "<br />Se ha subido un cambio...";
+    } //Mientras el carro sea manual
+
+    return "<br />Transmision automatica, no se puede hacer cambios...";
   }
 
-  public function BajarCambio()
+  public function BajarCambio(string $manual)
   {
-    if ($this->cambioActual == -1) {
-      return "<br />El carro no puede bajar mas cambios...";
-    }
-    $this->cambioActual -= 1;
-    return "<br />Se ha subido un cambio...";
+    $manual = strtoupper($manual);
+
+    if ($manual === "MANUAL") {
+
+      if ($this->cambioActual == -1) {
+        return "<br />El carro no puede bajar mas cambios...";
+      }
+      $this->cambioActual -= 1;
+      return "<br />Se ha subido un cambio...";
+    } //Mientras el carro sea manual
+    return "<br />Transmision automatica, no se puede hacer cambios...";
   }
 
   public function GetCambioActual(): string
@@ -60,22 +73,15 @@ class Carro extends Cambio
   private int $maxPasajeros;
   private int $maxCarga;
   private float $precio;
+  private $palancaCambio;
 
   //Estados 
   private bool $encendido = false;
   private bool $avanzando = false;
   private bool $retrocediendo = false;
 
-  // Metodos
-
-  public function SetBool($bool): string
-  {
-    if ($bool) {
-      return "Si...";
-    } else {
-      return "No...";
-    }
-  }
+  /*  METODOS  */
+  //Acciones
 
   public function Encender(): string
   {
@@ -129,11 +135,6 @@ class Carro extends Cambio
     return "<br />El carro esta girando a la $direccion ";
   }
 
-  public function MostrarKm(): string
-  {
-    return "<br />Los kilometrajes son " . $this->kilometraje . " Km";
-  }
-
   //Constructor
   public function __construct(
     $marca,
@@ -172,7 +173,25 @@ class Carro extends Cambio
     $this->maxPasajeros = $maxPasajeros;
     $this->maxCarga = $maxCarga;
     $this->precio = $precio;
+    // $this->palancaCambio = new Cambio;
+  } //TODO IMPLEMENTAR VALIDACION PARA LAS PROPIEDADES PRIVADAS
+
+  //Setters
+  public function SetBool($bool): string
+  {
+    if ($bool) {
+      return "Si...";
+    } else {
+      return "No...";
+    }
   }
+
+  // Getters
+  public function GetTransmision(): string
+  {
+    return $this->transmision;
+  } //TODO --> IMPLEMENTAR PALANCA DE CAMBIO SEGUN EL TIPO DE TRANSMISION...
+
 
   public function GetEstado(): string
   {
@@ -182,6 +201,12 @@ class Carro extends Cambio
       "<br />El carro esta retrocediendo: " . $this->SetBool($this->avanzando) .
       "<br />El carro esta la marcha: " . $this->GetCambioActual();
   }
+
+  public function GetKm(): string
+  {
+    return "<br />Los kilometrajes son " . $this->kilometraje . " Km";
+  }
+
   public function GetInfoCarro()
   {
     return $info = "
@@ -236,8 +261,8 @@ $corolla = new Carro(
   <h1>Caracteristicas del carro</h1>
   <?= $corolla->GetInfoCarro(); ?>
 
-  <h1>Acción que realiza el carro</h1>
-  <?= $corolla->Avanzar() . $corolla->Girar("Derecha") . $corolla->SubirCambio(); ?>
+  <h1>Acciones que realiza el carro</h1>
+  <?= $corolla->Avanzar() . $corolla->Girar("Derecha") . $corolla->SubirCambio("Manual"); ?>
 
   <h1>Estados del carro</h1>
   <?= $corolla->GetEstado(); ?>
