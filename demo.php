@@ -200,7 +200,8 @@ class Carro
   } //TODO IMPLEMENTAR VALIDACION PARA LAS PROPIEDADES PRIVADAS
 
   //Setters
-  public function SetBool($bool): string
+
+  public function SetBool($bool): string // True = Si, False = No
   {
     if ($bool) {
       return "Si...";
