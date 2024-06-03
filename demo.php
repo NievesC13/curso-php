@@ -1,5 +1,11 @@
 <?php
 
+function Titulo()
+{
+  $titulo = "\t\t****OBJETO DE UN CARRO****\n\n";
+  return $titulo;
+}
+
 //Clase de Carro
 class Cambio
 {
@@ -67,7 +73,7 @@ class Carro
   public string $modelo;
   public string $color;
 
-  private int $año;
+  private int $ano;
   private string $placa;
   private float $kilometraje;
   private float $tanqueGas;
@@ -158,12 +164,92 @@ class Carro
     return $this->palancaCambio->BajarCambio($this->transmision);
   }
 
+  //Setters
+
+  public function SetBool($bool): string // True = Si, False = No
+  {
+    if ($bool) {
+      return "Si...";
+    } else {
+      return "No...";
+    }
+  }
+
+  public function SetAno($ano)
+  {
+    $this->ano = $ano;
+  }
+
+  public function SetPlaca($placa)
+  {
+    $this->placa = $placa;
+  }
+
+  public function SetKilometraje($kilometraje)
+  {
+    $this->kilometraje = $kilometraje;
+  }
+
+  public function SetTanqueGas($tanqueGas)
+  {
+    $this->tanqueGas = $tanqueGas;
+  }
+
+  public function SetGasNvl($gasNvl)
+  {
+    $this->gasNvl = $gasNvl;
+  }
+
+  public function SetMotorTipo($motorTipo)
+  {
+    $this->motorTipo = $motorTipo;
+  }
+
+  public function SetConsumo($consumo)
+  {
+    $this->consumo = $consumo;
+  }
+  public function SetTransmision($transmision)
+  {
+    $this->transmision = $transmision;
+  }
+
+  public function SetNroPuertas($nroPuertas)
+  {
+    $this->nroPuertas = $nroPuertas;
+  }
+
+  public function SetNroRuedas($nroRuedas)
+  {
+    $this->nroRuedas = $nroRuedas;
+  }
+
+  public function SetTraccionTipo($traccionTipo)
+  {
+    $this->traccionTipo = $traccionTipo;
+  }
+
+  public function SetMaxPasajeros($maxPasajeros)
+  {
+    $this->maxPasajeros = $maxPasajeros;
+  }
+
+  public function SetMaxCarga($maxCarga)
+  {
+    $this->maxCarga = $maxCarga;
+  }
+
+  public function SetPrecio($precio)
+  {
+    $this->precio = $precio;
+  }
+
   //Constructor
   public function __construct(
     $marca,
     $modelo,
     $color,
-    $año,
+    $ano,
     $placa,
     $kilometraje,
     $tanqueGas,
@@ -181,34 +267,23 @@ class Carro
     $this->marca = $marca;
     $this->modelo = $modelo;
     $this->color = $color;
-    $this->kilometraje = $kilometraje;
-    $this->año = $año;
-    $this->placa = $placa;
-    $this->kilometraje = $kilometraje;
-    $this->tanqueGas = $tanqueGas;
-    $this->gasNvl = $gasNvl;
-    $this->motorTipo = $motorTipo;
-    $this->consumo = $consumo;
-    $this->transmision = $transmision;
-    $this->nroPuertas = $nroPuertas;
-    $this->nroRuedas = $nroRuedas;
-    $this->traccionTipo = $traccionTipo;
-    $this->maxPasajeros = $maxPasajeros;
-    $this->maxCarga = $maxCarga;
-    $this->precio = $precio;
+    $this->SetKilometraje($kilometraje);
+    $this->SetAno($ano);
+    $this->SetPlaca($placa);
+    $this->SetKilometraje($kilometraje);
+    $this->SetTanqueGas($tanqueGas);
+    $this->SetGasNvl($gasNvl);
+    $this->SetMotorTipo($motorTipo);
+    $this->SetConsumo($consumo);
+    $this->SetTransmision($transmision);
+    $this->SetNroPuertas($nroPuertas);
+    $this->SetNroRuedas($nroRuedas);
+    $this->SetTraccionTipo($traccionTipo);
+    $this->SetMaxPasajeros($maxPasajeros);
+    $this->SetMaxCarga($maxCarga);
+    $this->SetPrecio($precio);
     $this->palancaCambio = new Cambio($this->transmision);
   } //TODO IMPLEMENTAR VALIDACION PARA LAS PROPIEDADES PRIVADAS
-
-  //Setters
-
-  public function SetBool($bool): string // True = Si, False = No
-  {
-    if ($bool) {
-      return "Si...";
-    } else {
-      return "No...";
-    }
-  }
 
   // Getters
 
@@ -232,7 +307,7 @@ class Carro
             <br />La marca es:  $this->marca,
             <br />El modelo es: $this->modelo,
             <br />El color es:  $this->color,
-            <br />El año es: $this->año, 
+            <br />El año es: $this->ano, 
             <br />La placa es: $this->placa,
             <br />El kilometraje es: $this->kilometraje Km,
             <br />La capacidad de gasolina es: $this->tanqueGas Km,
@@ -249,27 +324,51 @@ class Carro
   }
 }
 
-$corolla = new Carro(
-  "Toyota",
-  "Corolla",
-  "Rojo",
-  2015,
-  "AZC452",
-  0,
-  5,
-  15,
-  "Gasolina",
-  10,
-  "Automatico",
-  5,
-  4,
-  "Trasera",
-  5,
-  200,
-  12000
-);
 
 //TODO REALIZAR FUNCION QUE RECIBA DATOS POR EL USUARIO HACERCA DEL CARRO A HACER... 
+
+//Solicitamos los parametros del carro para poder asignarlo al object
+echo Titulo();
+
+$marca = readline("Ingrese la marca: ");
+$modelo = readline("Ingrese el modelo: ");
+$color = readline("Ingrese el color: ");
+$ano = readline("Ingrese el año: ");
+$placa = readline("Ingrese la placa: ");
+$kilometraje = readline("Ingrese el kilometraje: ");
+$tanqueGas = readline("Ingrese la capacidad de combustible: ");
+$gasNvl = readline("Ingrese el nivel actual de combustible: ");
+$motorTipo = readline("Ingrese el tipo de motor: ");
+$consumo = readline("Ingrese el consumo por km: ");
+$transmision = readline("Ingrese el tipo de transmision (Automatico / Manual): ");
+$nroPuerta = readline("Ingrese el Numero de puertas: ");
+$nroRuedas = readline("Ingrese el Numero de ruedas: ");
+$traccionTipo = readline("Ingrese tipo de traccion (RWD / FWD / AWD / 4WD): ");
+$maxPasajeros = readline("Ingrese a capacidad maxima de pasajeros: ");
+$maxCarga = readline("Ingrese la carga maxima: ");
+$precio = readline("Ingrese el precio de concesionario: ");
+
+$corolla = new Carro(
+  $marca,
+  $modelo,
+  $color,
+  $ano,
+  $placa,
+  $kilometraje,
+  $tanqueGas,
+  $gasNvl,
+  $motorTipo,
+  $consumo,
+  $transmision,
+  $nroPuertas,
+  $nroRuedas,
+  $traccionTipo,
+  $maxPasajeros,
+  $maxCarga,
+  $precio
+);
+
+echo $corolla->GetInfoCarro();
 
 ?>
 
