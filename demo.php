@@ -19,13 +19,13 @@ class Cambio
 
       if ($this->cambioActual == 6) {
 
-        return "<br />El carro no puede subir mas cambios...";
+        return "El carro no puede subir mas cambios...\n";
       }
       $this->cambioActual += 1;
-      return "<br />Se ha subido un cambio...";
+      return "Se ha subido un cambio...\n";
     } //Mientras el carro sea manual
 
-    return "<br />Transmision automatica, no se puede hacer cambios...";
+    return "Transmision automatica, no se puede hacer cambios manualmente...\n";
   }
 
   public function BajarCambio(string $tipoTransmision)
@@ -34,12 +34,12 @@ class Cambio
     if ($tipoTransmision === "MANUAL") {
 
       if ($this->cambioActual == -1) {
-        return "<br />El carro no puede bajar mas cambios...";
+        return "El carro no puede bajar mas cambios...\n";
       }
       $this->cambioActual -= 1;
-      return "<br />Se ha subido un cambio...";
+      return "Se ha subido un cambio...\n";
     } //Mientras el carro sea manual
-    return "<br />Transmision automatica, no se puede hacer cambios...";
+    return "Transmision automatica, no se puede hacer cambios manualmente...\n";
   }
   //Todo Para retroceder, Palancacambio = cambioActual -1 
 
@@ -95,63 +95,64 @@ class Carro
   private bool $retrocediendo = false;
 
   /*  METODOS  */
+
   //Acciones
 
   public function Encender(): string
   {
     if ($this->encendido) {
-      return "El carro ya esta encendido...";
+      return "El carro ya esta encendido...\n";
     }
     $this->encendido = true;
-    return "El carro se ha encendido...";
+    return "El carro se ha encendido...\n";
   }
 
   public function Apagar(): string
   {
     if (!$this->encendido) {
-      return "El carro ya esta apagado...";
+      return "El carro ya esta apagado...\n";
     }
     $this->encendido = false;
-    return "El carro se ha apagado...";
+    return "El carro se ha apagado...\n";
   }
 
   public function Avanzar(): string
   {
     if ($this->retrocediendo && $this->avanzando = false) {
-      return "<br />El carro no puede avanzar mientras retrocede...";
+      return "El carro no puede avanzar mientras retrocede...\n";
     } elseif (!$this->encendido) {
-      return "<br />El carro no puede avanzar porque esta apagado...";
+      return "El carro no puede avanzar porque esta apagado...\n";
     }
     $this->avanzando = true;
-    return "<br />El carro " . $this->marca . " " . $this->modelo . " esta avanzando...";
+    return "El carro " . $this->marca . " " . $this->modelo . " esta avanzando...\n";
   }
 
   public function Retroceder(): string
   {
     if ($this->avanzando && $this->retrocediendo = false) {
-      return "<br />El carro no puede retroceder mientras avanza...";
+      return "El carro no puede retroceder mientras avanza...\n";
     } elseif (!$this->encendido) {
-      return "<br />El carro no puede retroceder porque esta apagado...";
+      return "El carro no puede retroceder porque esta apagado...\n";
     }
     $this->retrocediendo = true;
-    return "<br />El carro " . $this->marca . " " . $this->modelo . " esta retrocediendo...";
+    return "El carro " . $this->marca . " " . $this->modelo . " esta retrocediendo...\n";
   }
 
   public function Frenar(): string
   {
     if (!$this->avanzando) {
-      return "<br />El carro se ha franado aunque no este avanzando...";
+      return "El carro se ha franado aunque no este avanzando...\n";
     }
     $this->avanzando = false;
-    return "<br />El carro se ha frenado completamente...";
+    return "El carro se ha frenado completamente...\n";
   }
 
   public function Girar($direccion): string
   {
     if (!$this->avanzando) {
-      return "<br />El carro no esta en movimiento asi que no puede girar...";
+      return "El carro no esta en movimiento asi que no puede girar...\n";
     }
-    return "<br />El carro esta girando a la $direccion ";
+    return "El carro esta girando a la $direccion...\n";
   }
 
   public function SubirCambio()
@@ -175,71 +176,71 @@ class Carro
     }
   }
 
-  public function SetAno($ano)
+  public function SetAno(int $ano)
   {
     $this->ano = $ano;
   }
 
-  public function SetPlaca($placa)
+  public function SetPlaca(string $placa)
   {
     $this->placa = $placa;
   }
 
-  public function SetKilometraje($kilometraje)
+  public function SetKilometraje(int $kilometraje)
   {
     $this->kilometraje = $kilometraje;
   }
 
-  public function SetTanqueGas($tanqueGas)
+  public function SetTanqueGas(int $tanqueGas)
   {
     $this->tanqueGas = $tanqueGas;
   }
 
-  public function SetGasNvl($gasNvl)
+  public function SetGasNvl(int $gasNvl)
   {
     $this->gasNvl = $gasNvl;
   }
 
-  public function SetMotorTipo($motorTipo)
+  public function SetMotorTipo(string $motorTipo)
   {
     $this->motorTipo = $motorTipo;
   }
 
-  public function SetConsumo($consumo)
+  public function SetConsumo(int $consumo)
   {
     $this->consumo = $consumo;
   }
-  public function SetTransmision($transmision)
+  public function SetTransmision(string $transmision)
   {
     $this->transmision = $transmision;
   }
 
-  public function SetNroPuertas($nroPuertas)
+  public function SetNroPuertas(int $nroPuertas)
   {
     $this->nroPuertas = $nroPuertas;
   }
 
-  public function SetNroRuedas($nroRuedas)
+  public function SetNroRuedas(int $nroRuedas)
   {
     $this->nroRuedas = $nroRuedas;
   }
 
-  public function SetTraccionTipo($traccionTipo)
+  public function SetTraccionTipo(string $traccionTipo)
   {
     $this->traccionTipo = $traccionTipo;
   }
 
-  public function SetMaxPasajeros($maxPasajeros)
+  public function SetMaxPasajeros(int $maxPasajeros)
   {
     $this->maxPasajeros = $maxPasajeros;
   }
 
-  public function SetMaxCarga($maxCarga)
+  public function SetMaxCarga(int $maxCarga)
   {
     $this->maxCarga = $maxCarga;
   }
 
-  public function SetPrecio($precio)
+  public function SetPrecio(float $precio)
   {
     $this->precio = $precio;
   }
@@ -290,117 +291,107 @@ class Carro
   public function GetEstado(): string
   {
     return $info =
-      "<br />El carro esta encendido: " . $this->SetBool($this->encendido) .
-      "<br />El carro esta avanzando: " . $this->SetBool($this->avanzando) .
-      "<br />El carro esta retrocediendo: " . $this->SetBool($this->avanzando) .
-      "<br />El carro esta la marcha: " . $this->palancaCambio->GetCambioActual($this->transmision);
+      "\nEl carro esta encendido: " . $this->SetBool($this->encendido) .
+      "\nEl carro esta avanzando: " . $this->SetBool($this->avanzando) .
+      "\nEl carro esta retrocediendo: " . $this->SetBool($this->avanzando) .
+      "\nEl carro esta la marcha: " . $this->palancaCambio->GetCambioActual($this->transmision);
   }
 
   public function GetKm(): string
   {
-    return "<br />Los kilometrajes son " . $this->kilometraje . " Km";
+    return "\nLos kilometrajes son " . $this->kilometraje . " Km";
   }
 
   public function GetInfoCarro()
   {
-    return $info = "
-            <br />La marca es:  $this->marca,
-            <br />El modelo es: $this->modelo,
-            <br />El color es:  $this->color,
-            <br />El año es: $this->ano, 
-            <br />La placa es: $this->placa,
-            <br />El kilometraje es: $this->kilometraje Km,
-            <br />La capacidad de gasolina es: $this->tanqueGas Km,
-            <br />El nivel de la gasolina es: $this->gasNvl, 
-            <br />El tipo de motor es: $this->motorTipo,
-            <br />Su consumo es de: $this->consumo litros por Km, 
-            <br />Tipo de transmision es: $this->transmision, 
-            <br />Total de puertas: $this->nroPuertas, 
-            <br />Total de ruedas: $this->nroRuedas, 
-            <br />Tipo de traccion: $this->traccionTipo, 
-            <br />Capacidad Max de Pasajeros: $this->maxPasajeros,
-            <br />Capacidad Max de Carga: $this->maxCarga,
-            <br />Precio de concesionario: $this->precio $";
+    $info = "
+      La marca es:  $this->marca,
+      El modelo es: $this->modelo,
+      El color es:  $this->color,
+      El año es: $this->ano, 
+      La placa es: $this->placa,
+      El kilometraje es: $this->kilometraje Km,
+      La capacidad de gasolina es: $this->tanqueGas Lts,
+      El nivel de la gasolina es: $this->gasNvl Lts, 
+      El tipo de motor es: $this->motorTipo,
+      Su consumo es de: $this->consumo litros por Km, 
+      Tipo de transmision es: $this->transmision, 
+      Total de puertas: $this->nroPuertas, 
+      Total de ruedas: $this->nroRuedas, 
+      Tipo de traccion: $this->traccionTipo, 
+      Capacidad Max de Pasajeros: $this->maxPasajeros,
+      Capacidad Max de Carga: $this->maxCarga,
+      Precio de concesionario: $this->precio $ \n";
+
+    return $info;
   }
 }
 
 
 //TODO REALIZAR FUNCION QUE RECIBA DATOS POR EL USUARIO HACERCA DEL CARRO A HACER... 
 
-//Solicitamos los parametros del carro para poder asignarlo al object
+//Solicitamos los parametros del carro para poder asignarlo al object por consola
 echo Titulo();
 
-$marca = readline("Ingrese la marca: ");
-$modelo = readline("Ingrese el modelo: ");
-$color = readline("Ingrese el color: ");
-$ano = readline("Ingrese el año: ");
-$placa = readline("Ingrese la placa: ");
-$kilometraje = readline("Ingrese el kilometraje: ");
-$tanqueGas = readline("Ingrese la capacidad de combustible: ");
-$gasNvl = readline("Ingrese el nivel actual de combustible: ");
-$motorTipo = readline("Ingrese el tipo de motor: ");
-$consumo = readline("Ingrese el consumo por km: ");
-$transmision = readline("Ingrese el tipo de transmision (Automatico / Manual): ");
-$nroPuerta = readline("Ingrese el Numero de puertas: ");
-$nroRuedas = readline("Ingrese el Numero de ruedas: ");
-$traccionTipo = readline("Ingrese tipo de traccion (RWD / FWD / AWD / 4WD): ");
-$maxPasajeros = readline("Ingrese a capacidad maxima de pasajeros: ");
-$maxCarga = readline("Ingrese la carga maxima: ");
-$precio = readline("Ingrese el precio de concesionario: ");
+// $marca = readline("Ingrese la marca: ");
+// $modelo = readline("Ingrese el modelo: ");
+// $color = readline("Ingrese el color: ");
+// $ano = readline("Ingrese el año: ");
+// $placa = readline("Ingrese la placa: ");
+// $kilometraje = readline("Ingrese el kilometraje: ");
+// $tanqueGas = readline("Ingrese la capacidad de combustible: ");
+// $gasNvl = readline("Ingrese el nivel actual de combustible: ");
+// $motorTipo = readline("Ingrese el tipo de motor: ");
+// $consumo = readline("Ingrese el consumo por km: ");
+// $transmision = readline("Ingrese el tipo de transmision (Automatico / Manual): ");
+// $nroPuertas = readline("Ingrese el Numero de puertas: ");
+// $nroRuedas = readline("Ingrese el Numero de ruedas: ");
+// $traccionTipo = readline("Ingrese tipo de traccion (RWD / FWD / AWD / 4WD): ");
+// $maxPasajeros = readline("Ingrese a capacidad maxima de pasajeros: ");
+// $maxCarga = readline("Ingrese la carga maxima: ");
+// $precio = readline("Ingrese el precio de concesionario: ");
+
+// $corolla = new Carro(
+//   $marca,
+//   $modelo,
+//   $color,
+//   $ano,
+//   $placa,
+//   $kilometraje,
+//   $tanqueGas,
+//   $gasNvl,
+//   $motorTipo,
+//   $consumo,
+//   $transmision,
+//   $nroPuertas,
+//   $nroRuedas,
+//   $traccionTipo,
+//   $maxPasajeros,
+//   $maxCarga,
+//   $precio
+// );
+
+// Ingreso de datos por codigo
 
 $corolla = new Carro(
-  $marca,
-  $modelo,
-  $color,
-  $ano,
-  $placa,
-  $kilometraje,
-  $tanqueGas,
-  $gasNvl,
-  $motorTipo,
-  $consumo,
-  $transmision,
-  $nroPuertas,
-  $nroRuedas,
-  $traccionTipo,
-  $maxPasajeros,
-  $maxCarga,
-  $precio
+  "Toyota",
+  "Corolla",
+  "Rojo",
+  2015,
+  "AZC452",
+  0,
+  5,
+  15,
+  "Gasolina",
+  10,
+  "Automatico",
+  5,
+  4,
+  "Trasera",
+  5,
+  200,
+  12000,
 );
 
 echo $corolla->GetInfoCarro();
-
-?>
-
-
-<!--VISUALIZAR-->
-
-<main>
-  <title>OOP Carro </title>
-
-  <h1>Caracteristicas del carro</h1>
-  <?= $corolla->GetInfoCarro(); ?>
-
-  <h1>Acciones que realiza el carro</h1>
-  <?= $corolla->Encender() . $corolla->Avanzar() . $corolla->Girar("Derecha") . $corolla->SubirCambio(); ?>
-
-  <h1>Estados del carro</h1>
-  <?= $corolla->GetEstado(); ?>
-
-  <footer>
-    <h2>Recursos usados para realizar el proyecto...</h2>
-    <br /><a href="https://www.youtube.com/watch?v=BcGAPkjt_IE" target="_blank">Curso de PHP</a>
-    <br /><a href="https://www.youtube.com/watch?v=UyNZxmrouso&list=PLH_tVOsiVGzm0PGn_HEZbgm_ugEgV7LKV&pp=iAQB" target="_blank" rel="nonferrer">Curso de POO en PHP</a>
-  </footer>
-</main>
-
-<style>
-  :root {
-    color-scheme: light dark;
-  }
-
-  body {
-    display: grid;
-    place-content: center;
-  }
-</style>
+echo $corolla->Avanzar();
