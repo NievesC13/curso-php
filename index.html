@@ -75,18 +75,21 @@
       <ul>
         <li class="list'item">Chinchin - 2024</li>
         <li class="list'item">Tatiana Torres Medicare - 2023</li>
-        <li class="list'item">Tatiana Torres Medicare - 2021 - 2023</li>
+        <li class="list'item">
+          Helping Hands Miami Recovery House - 2021 - 2023
+        </li>
       </ul>
 
-      <img
-        id="photo-image-Cesar"
-        hidden
-        width="200"
-        height="250"
-        title="Foto de Cesar"
-        src="/images/hasbulla.jpg"
-        alt="Una foto de Cesar Nieves en la vida real..."
-      />
+      <a download href="images/hasbulla.jpg">
+        <img
+          id="photo-image-Cesar"
+          width="200"
+          height="250"
+          title="Foto de Cesar"
+          src="/images/hasbulla.jpg"
+          alt="Una foto de Cesar Nieves en la vida real..."
+        />
+      </a>
 
       <h2 id="proyectos">Proyectos realizados</h2>
 
@@ -95,7 +98,7 @@
         <header>
           <h3>Tecnologias <span style="color: red">favoritas</span></h3>
         </header>
-        <ol>
+        <ol type="I" reversed start="10">
           <!--Lista ordenada por numeros-->
           <li>Python</li>
           <li>JavaScript</li>
@@ -147,6 +150,93 @@
           </footer>
         </article>
       </section>
+
+      <section>
+        <h2>Preguntas frecuentes</h2>
+        <details>
+          <summary>Que estudios tienes?</summary>
+          <ol>
+            <li>
+              He estudiado en la Universidad Santa Maria una Ingenieria en
+              sistemas durante 5 años
+            </li>
+            <li>He relizados cursos en distintos lenguajes de programacion</li>
+            <li>He realizado cursos de idiomas como ingles y japones</li>
+          </ol>
+        </details>
+      </section>
+
+      <section>
+        <h2>Formulario de Contacto</h2>
+        <form method="post" action="/">
+          <fieldset>
+            <legend>Informacion Personal</legend>
+            <div>
+              <label for="name">Nombre: </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Cesar Nieves"
+                required
+              />
+            </div>
+            <!--Se puede usar de esta manera-->
+            <label style="display: block">
+              Email:
+              <input
+                type="email"
+                name="email"
+                placeholder="nievescesar87@gmail.com"
+                required
+              />
+            </label>
+            <!--Y de esta manera envolviendo el input con el label-->
+          </fieldset>
+          <fieldset>
+            <legend>Informacion adicional</legend>
+            <div>
+              <label for="telefono">
+                Telefono:
+                <input
+                  type="tel"
+                  name="telefono"
+                  placeholder="+584242812813"
+                  required
+                />
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Otros</legend>
+            <div>
+              <label for="why">Por que quieres contactar?</label>
+              <select name="why" id="why">
+                <option value="1">Trabajo</option>
+                <option value="2">Negocio</option>
+                <option value="3">Duda</option>
+                <option value="4">Mas Informacion</option>
+              </select>
+            </div>
+            <div>
+              <label for="terms">Aceptas las condiciones?</label>
+              <input type="checkbox" name="terms" id="terms" required />
+            </div>
+            <div>
+              <datalist id="languages">
+                <option value="JavaScript"></option>
+                <option value="Python"></option>
+                <option value="C#"></option>
+              </datalist>
+              <label>
+                Con que lenguaje quieres que te ayude?
+                <input list="languages" name="Languages" />
+              </label>
+            </div>
+          </fieldset>
+          <input type="submit" value="Enviar contacto" />
+        </form>
+      </section>
     </main>
 
     <footer>
@@ -166,21 +256,29 @@
 <!-- HTML de DEMO PHP
 
 <main>
-  <title>OOP Carro </title>
+  <title>OOP Carro</title>
 
   <h1>Caracteristicas del carro</h1>
   <?= $corolla->GetInfoCarro(); ?>
 
   <h1>Acciones que realiza el carro</h1>
-  <?= $corolla->Encender() . $corolla->Avanzar() . $corolla->Girar("Derecha") . $corolla->SubirCambio(); ?>
+  <?= $corolla->Encender() . $corolla->Avanzar() . $corolla->Girar("Derecha") .
+  $corolla->SubirCambio(); ?>
 
   <h1>Estados del carro</h1>
   <?= $corolla->GetEstado(); ?>
 
   <footer>
     <h2>Recursos usados para realizar el proyecto...</h2>
-    <br /><a href="https://www.youtube.com/watch?v=BcGAPkjt_IE" target="_blank">Curso de PHP</a>
-    <br /><a href="https://www.youtube.com/watch?v=UyNZxmrouso&list=PLH_tVOsiVGzm0PGn_HEZbgm_ugEgV7LKV&pp=iAQB" target="_blank" rel="nonferrer">Curso de POO en PHP</a>
+    <br /><a href="https://www.youtube.com/watch?v=BcGAPkjt_IE" target="_blank"
+      >Curso de PHP</a
+    >
+    <br /><a
+      href="https://www.youtube.com/watch?v=UyNZxmrouso&list=PLH_tVOsiVGzm0PGn_HEZbgm_ugEgV7LKV&pp=iAQB"
+      target="_blank"
+      rel="nonferrer"
+      >Curso de POO en PHP</a
+    >
   </footer>
 </main>
 
@@ -193,8 +291,4 @@
     display: grid;
     place-content: center;
   }
-</style>
-
-
-
--->
+</style> -->
