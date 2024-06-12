@@ -291,10 +291,11 @@ class Carro
   public function GetEstado(): string
   {
     return $info =
+      "\n\n\t\t***ESTADOS DEL CARRO***\n" .
       "\nEl carro esta encendido: " . $this->SetBool($this->encendido) .
       "\nEl carro esta avanzando: " . $this->SetBool($this->avanzando) .
       "\nEl carro esta retrocediendo: " . $this->SetBool($this->avanzando) .
-      "\nEl carro esta la marcha: " . $this->palancaCambio->GetCambioActual($this->transmision);
+      "\nEl carro esta la marcha: " . $this->palancaCambio->GetCambioActual($this->transmision) . "\n";
   }
 
   public function GetKm(): string
@@ -326,9 +327,6 @@ class Carro
     return $info;
   }
 }
-
-
-//TODO REALIZAR FUNCION QUE RECIBA DATOS POR EL USUARIO HACERCA DEL CARRO A HACER... 
 
 //Solicitamos los parametros del carro para poder asignarlo al object por consola
 echo Titulo();
@@ -384,7 +382,7 @@ $corolla = new Carro(
   15,
   "Gasolina",
   10,
-  "Automatico",
+  "MaNual",
   5,
   4,
   "Trasera",
@@ -393,5 +391,9 @@ $corolla = new Carro(
   12000,
 );
 
+/* ACCIONES A REALIZAR*/
+
 echo $corolla->GetInfoCarro();
+echo $corolla->GetEstado();
+echo $corolla->Encender();
 echo $corolla->Avanzar();
