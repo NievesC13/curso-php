@@ -284,7 +284,7 @@ class Carro
     $this->SetMaxCarga($maxCarga);
     $this->SetPrecio($precio);
     $this->palancaCambio = new Cambio($this->transmision);
-  } //TODO IMPLEMENTAR VALIDACION PARA LAS PROPIEDADES PRIVADAS
+  }
 
   // Getters
 
@@ -390,6 +390,19 @@ $corolla = new Carro(
   200,
   12000,
 );
+
+/** Listado de transacciones que puede realizar el objeto Carro
+ * 
+ * Encender
+ * Apagar
+ * Avanzar
+ * Retroceder 
+ * Frenar
+ * Girar
+ * SubirCambio
+ * BajarCambio
+ * 
+ */
 
 /* ACCIONES A REALIZAR*/
 
